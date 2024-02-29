@@ -1,5 +1,7 @@
 # ComfyUI_OOTDiffusion_CXH
-OOTDiffusion
+基于ComfyUI_OOTDiffusion_CXH的优化版本，修复一些问题
+
+------------------------------
 
 安装教程:https://www.bilibili.com/video/BV1ew4m1f7bb/
 
