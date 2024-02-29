@@ -44,7 +44,7 @@ class OpenPose:
             input_image = HWC3(input_image)
             input_image = resize_image(input_image, resolution)
             H, W, C = input_image.shape
-            assert (H == 512 and W == 384), 'Incorrect input image shape'
+            # assert (H == 512 and W == 384), 'Incorrect input image shape'
             pose, detected_map = self.preprocessor(input_image, hand_and_face=False)
 
             candidate = pose['bodies']['candidate']
@@ -63,9 +63,14 @@ class OpenPose:
 
             candidate = candidate[:18]
 
+            # for i in range(18):
+            #     candidate[i][0] *= 384
+            #     candidate[i][1] *= 512
+
+            # 这个mask处理逻辑待优化
             for i in range(18):
-                candidate[i][0] *= 384
-                candidate[i][1] *= 512
+                candidate[i][0] *= W
+                candidate[i][1] *= H
 
             keypoints = {"pose_keypoints_2d": candidate}
             # with open("/home/aigc/ProjectVTON/OpenPose/keypoints/keypoints.json", "w") as f:
