@@ -9,7 +9,7 @@ from torch.utils.cpp_extension import load
 
 _src_path = path.join(path.dirname(path.abspath(__file__)), "src")
 _backend = load(name="inplace_abn",
-                extra_cflags=["/O2"],
+                extra_cflags=["-O3"],
                 sources=[path.join(_src_path, f) for f in [
                     "inplace_abn.cpp",
                     "inplace_abn_cpu.cpp",
