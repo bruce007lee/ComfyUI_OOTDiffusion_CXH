@@ -4,7 +4,7 @@
 numpy
 opencv-python
 pillow
-diffusers==0.24.0 
+diffusers
 transformers
 accelerate
 matplotlib
